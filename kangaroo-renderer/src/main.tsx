@@ -32,7 +32,8 @@ import { useProblemStore } from './stores/problemStore';
 import type { ProblemConfig, ProblemManifest, ProblemManifestEntry } from './types/problem';
 import './index.css';
 
-const DEFAULT_TITLE = 'Math Kangaroo Visualizations';
+const SITE_TITLE = 'MathZone Unlocked';
+const KANGAROO_TITLE = 'Math Kangaroo Visualizations';
 
 type AppMode = 'interactive' | 'slides' | 'games';
 
@@ -60,13 +61,20 @@ function App() {
   const [view, setView] = useState<'home' | 'app' | 'precalculus'>('home');
   const [mode, setMode] = useState<AppMode>('interactive');
 
-  // Browser tab title doubles as the problem's "final page name" — the
-  // JSON filename (meta.id) already encodes grade + year, e.g.
+  // Site-level pages carry the MathZone brand. Inside the Kangaroo module
+  // the tab title doubles as the problem's "final page name" — the JSON
+  // filename (meta.id) already encodes grade + year, e.g.
   // MK_G1_2_2021_GearRatio, so surface it verbatim rather than the
   // human-readable meta.title.
   useEffect(() => {
-    document.title = config ? `${config.meta.id} · ${DEFAULT_TITLE}` : DEFAULT_TITLE;
-  }, [config]);
+    if (view === 'home') {
+      document.title = SITE_TITLE;
+    } else if (view === 'precalculus') {
+      document.title = `PreCalculus · ${SITE_TITLE}`;
+    } else {
+      document.title = config ? `${config.meta.id} · ${KANGAROO_TITLE}` : KANGAROO_TITLE;
+    }
+  }, [view, config]);
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}problems/manifest.json`)
