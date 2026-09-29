@@ -19,8 +19,13 @@
     "@mui/material": "^9.1.2",
     "@react-three/drei": "^9.117.3",
     "@react-three/fiber": "^8.17.10",
+    "katex": "^0.18.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-markdown": "^10.1.0",
+    "rehype-katex": "^7.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-math": "^6.0.0",
     "three": "^0.170.0",
     "zustand": "^5.0.2"
   },

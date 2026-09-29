@@ -7,14 +7,16 @@ import { QrCodeGallery } from './QrCodeGallery';
 
 type HomeScreenProps = {
   onEnterKangaroo: () => void;
+  onEnterPreCalculus: () => void;
 };
 
 /** MathZone brand landing page: hero (with social follow icons), program
  * grid, a small recommended-content QR section, and instructor bio — in
  * that order. */
-export function HomeScreen({ onEnterKangaroo }: HomeScreenProps) {
+export function HomeScreen({ onEnterKangaroo, onEnterPreCalculus }: HomeScreenProps) {
   const handleSelectProgram = (id: string) => {
     if (id === 'kangaroo') onEnterKangaroo();
+    if (id === 'precalculus') onEnterPreCalculus();
   };
 
   return (

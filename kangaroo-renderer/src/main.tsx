@@ -27,6 +27,7 @@ import { ProblemPlayer } from './player/ProblemPlayer';
 import { HomeScreen } from './ui/home/HomeScreen';
 import { GamesPage } from './ui/games/GamesPage';
 import { SlidesPage } from './ui/slides/SlidesPage';
+import type { SlideGrade } from './ui/slides/slidesContent';
 import { useProblemStore } from './stores/problemStore';
 import type { ProblemConfig, ProblemManifest, ProblemManifestEntry } from './types/problem';
 import './index.css';
@@ -34,6 +35,8 @@ import './index.css';
 const DEFAULT_TITLE = 'Math Kangaroo Visualizations';
 
 type AppMode = 'interactive' | 'slides' | 'games';
+
+const PRECALCULUS_SLIDE_GRADES: SlideGrade[] = ['PreCalculus'];
 
 // Dev-only hook so automated checks (and manual console poking) can drive
 // the store directly: __problemStore.getState().setFoldAngle(90) etc.
@@ -54,7 +57,7 @@ function App() {
   const [selected, setSelected] = useState<string>('');
   const [config, setConfig] = useState<ProblemConfig | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [view, setView] = useState<'home' | 'app'>('home');
+  const [view, setView] = useState<'home' | 'app' | 'precalculus'>('home');
   const [mode, setMode] = useState<AppMode>('interactive');
 
   // Browser tab title doubles as the problem's "final page name" — the
@@ -122,7 +125,43 @@ function App() {
   };
 
   if (view === 'home') {
-    return <HomeScreen onEnterKangaroo={() => setView('app')} />;
+    return (
+      <HomeScreen
+        onEnterKangaroo={() => setView('app')}
+        onEnterPreCalculus={() => setView('precalculus')}
+      />
+    );
+  }
+
+  if (view === 'precalculus') {
+    return (
+      <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        <AppBar position="static" color="transparent" elevation={0}>
+          <Toolbar sx={{ gap: 3, py: 1.5 }}>
+            <Typography
+              component="button"
+              onClick={() => setView('home')}
+              variant="h6"
+              sx={{
+                fontWeight: 700,
+                color: 'text.primary',
+                bgcolor: 'transparent',
+                border: 'none',
+                p: 0,
+                cursor: 'pointer',
+                fontFamily: 'inherit',
+              }}
+              aria-label="Back to MathZone home"
+            >
+              📈 PreCalculus
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Container maxWidth="lg" sx={{ flex: 1, display: 'flex', flexDirection: 'column', pb: 6, pt: 2 }}>
+          <SlidesPage grades={PRECALCULUS_SLIDE_GRADES} />
+        </Container>
+      </Box>
+    );
   }
 
   return (

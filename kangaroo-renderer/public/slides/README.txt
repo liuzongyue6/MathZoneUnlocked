@@ -7,6 +7,11 @@
 2. 把 PDF 放进对应年级文件夹即可（文件名随意）：
    MK_G1_2/<任意文件名>.pdf
    MK_G5_6/<任意文件名>.pdf
+   PreCalculus/<任意文件名>.pdf   （显示在主页 PreCalculus 卡片里，不在袋鼠「上课课件」里）
+   除了 PDF，也支持 .md（网页里直接排版显示，支持表格和 $公式$）
+   和 .docx（只提供下载，浏览器无法预览）。
+   新增其它课程文件夹：在 scripts/build-slides-manifest.mjs 的 COURSE_DIRS
+   和 src/ui/slides/slidesContent.ts 的 SlideGrade 里登记。
 
 3. 跑一次 `npm run dev` 或 `npm run build`（会自动先跑
    scripts/build-slides-manifest.mjs 重新扫描并生成

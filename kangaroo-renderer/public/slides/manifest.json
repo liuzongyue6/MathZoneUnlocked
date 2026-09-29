@@ -3,20 +3,44 @@
     {
       "id": "mk-g1-2-2025-felix-15-questions",
       "grade": "MK_G1_2",
+      "kind": "pdf",
       "title": "2025 Felix 15 Questions",
       "fileSrc": "/slides/MK_G1_2/2025_Felix_15_Questions.pdf"
     },
     {
       "id": "mk-g1-2-mathkangaroo-g1-2-26-summer-10-classes",
       "grade": "MK_G1_2",
+      "kind": "pdf",
       "title": "MathKangaroo G1 2 26 Summer 10 Classes",
       "fileSrc": "/slides/MK_G1_2/MathKangaroo_G1_2_26_Summer_10_Classes.pdf"
     },
     {
       "id": "mk-g5-6-mathkangaroo-26-summer-g5-g6-10-classes",
       "grade": "MK_G5_6",
+      "kind": "pdf",
       "title": "MathKangaroo 26 Summer G5 G6 10 Classes",
       "fileSrc": "/slides/MK_G5_6/MathKangaroo_26_Summer_G5_G6_10_Classes.pdf"
+    },
+    {
+      "id": "precalculus-l00-active-recall",
+      "grade": "PreCalculus",
+      "kind": "pdf",
+      "title": "L00 Active Recall",
+      "fileSrc": "/slides/PreCalculus/L00_Active_Recall.pdf"
+    },
+    {
+      "id": "precalculus-l00-course-map-md",
+      "grade": "PreCalculus",
+      "kind": "markdown",
+      "title": "L00 Course Map",
+      "fileSrc": "/slides/PreCalculus/L00_Course_Map.md"
+    },
+    {
+      "id": "precalculus-l01-handout-docx",
+      "grade": "PreCalculus",
+      "kind": "docx",
+      "title": "L01 Handout",
+      "fileSrc": "/slides/PreCalculus/L01_Handout.docx"
     }
   ]
 }

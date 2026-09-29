@@ -30,8 +30,9 @@ export type ProgramCard = {
 /** The 3 program cards shown in the stack, in display order (always top
  * to bottom, on every screen size).
  *
- * Math Kangaroo is the only fully wired up, clickable program, so it
- * leads. Algebra 1 & 2 is a plain 'coming-soon' placeholder. AP Calculus
+ * Math Kangaroo (interactive app) and PreCalculus (course materials from
+ * public/slides/PreCalculus/) are the clickable programs, so they lead.
+ * AP Calculus
  * has no page yet, but is highlighted with scan-to-preview QR codes
  * ('preview' status) instead of a plain "Coming Soon" badge — swap in the
  * real image paths/titles once you have them. */
@@ -46,13 +47,13 @@ export const PROGRAM_CARDS: ProgramCard[] = [
     ctaLabel: '开始探索 · Explore',
   },
   {
-    id: 'algebra',
-    icon: '📐',
-    title: 'Algebra 1 & 2',
-    subtitle: '代数思维基础',
-    description: '系统梳理代数核心概念与解题方法，开课信息：即将上线',
-    status: 'coming-soon',
-    ctaLabel: 'Coming Soon',
+    id: 'precalculus',
+    icon: '📈',
+    title: 'PreCalculus',
+    subtitle: '预备微积分 · 课程材料',
+    description: '覆盖 Test-Out 与 AP Precalculus 核心内容，为 AP Calculus BC 打基础。',
+    status: 'available',
+    ctaLabel: '进入模块 · Enter',
   },
   {
     id: 'ap-calculus',
